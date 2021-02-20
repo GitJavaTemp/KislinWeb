@@ -1,17 +1,24 @@
 package Resume;
 
+import java.util.ArrayList;
+
 /**
  * Admin
  * 17.02.2021
  */
-public class EDUCATION {
-    String education;
+public class EDUCATION implements Skills {
 
-    public EDUCATION(String education) {
-        this.education = education;
+    ArrayList<String> eduList = new ArrayList<String>();
+
+    public void viewAttributes() {
+        System.out.print("Образование: ");
+        for (String s : eduList) {
+            System.out.println(s);
+        }
+        System.out.println("\n");
     }
 
-    public String getEducation() {
-        return education;
+    public void setAttributes(String achievement) {
+        eduList.add(achievement);
     }
 }

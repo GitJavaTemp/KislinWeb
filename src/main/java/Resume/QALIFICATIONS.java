@@ -1,17 +1,23 @@
 package Resume;
 
+import java.util.ArrayList;
+
 /**
  * Admin
  * 17.02.2021
  */
 public class QALIFICATIONS {
-    String qualifications;
+    ArrayList<String> qualList = new ArrayList<String>();
 
-    public QALIFICATIONS(String qualifications) {
-        this.qualifications = qualifications;
+    public void viewAttributes() {
+        System.out.print("Квалификация: ");
+        for (String s : qualList) {
+            System.out.println(s);
+        }
+        System.out.println("\n");
     }
 
-    public String getQualifications() {
-        return qualifications;
+    public void setAttributes(String achievement) {
+        qualList.add(achievement);
     }
 }

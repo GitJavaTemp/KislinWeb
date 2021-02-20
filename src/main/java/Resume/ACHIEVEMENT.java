@@ -7,14 +7,19 @@ import java.util.Collection;
  * Admin
  * 17.02.2021
  */
-public class ACHIEVEMENT {
-    String achievement;
+public class ACHIEVEMENT implements Skills {
 
-    public ACHIEVEMENT(String achievement) {
-        this.achievement = achievement;
+    ArrayList<String> achievList = new ArrayList<String>();
+
+    public void viewAttributes() {
+        System.out.print("Достижения: ");
+        for (String s : achievList) {
+            System.out.println(s);
+        }
+        System.out.println("\n");
     }
 
-    public String getAchievement() {
-        return achievement;
+    public void setAttributes(String achievement) {
+        achievList.add(achievement);
     }
 }

@@ -1,17 +1,24 @@
 package Resume;
 
+import java.util.ArrayList;
+
 /**
  * Admin
  * 17.02.2021
  */
 public class EXPERIENCE {
-    String experience;
 
-    public EXPERIENCE(String experience) {
-        this.experience = experience;
+    ArrayList<String> experList = new ArrayList<String>();
+
+    public void viewAttributes() {
+        System.out.print("Опыт: ");
+        for (String s : experList) {
+            System.out.println(s);
+        }
+        System.out.println("\n");
     }
 
-    public String getExperience() {
-        return experience;
+    public void setAttributes(String achievement) {
+        experList.add(achievement);
     }
 }
