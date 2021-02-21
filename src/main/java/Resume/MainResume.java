@@ -10,7 +10,7 @@ public class MainResume {
                 "Oleg Kudrevich", "Krasina 23",
                 "7539843", "Benz-classik@yandex.ru");
 
-        programer.achievement.setAttributes("Разработака десктопных приложений, основы WEB");
+        programer.achievement.setAttributes("Разработака десктопных приложений, основы WfgbgfEB");
         programer.education.setAttributes("BSUIR 2000-2005");
         programer.experience.setAttributes("Два года");
         programer.qalifications.setAttributes("Java SE, Java EE");
