@@ -1,25 +1,23 @@
-package Resume;
+package Resume.Skills;
 
 import java.util.ArrayList;
-import java.util.Collection;
 
 /**
  * Admin
  * 17.02.2021
  */
-public class ACHIEVEMENT implements Skills {
-
-    ArrayList<String> achievList = new ArrayList<String>();
+public class OBJECTIVE implements Skills{
+    ArrayList<String> objList = new ArrayList<String>();
 
     public void viewAttributes() {
         System.out.print("Достижения: ");
-        for (String s : achievList) {
+        for (String s : objList) {
             System.out.println(s);
         }
         System.out.println("\n");
     }
 
     public void setAttributes(String achievement) {
-        achievList.add(achievement);
+        objList.add(achievement);
     }
 }

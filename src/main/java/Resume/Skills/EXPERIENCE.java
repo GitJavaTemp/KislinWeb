@@ -1,4 +1,4 @@
-package Resume;
+package Resume.Skills;
 
 import java.util.ArrayList;
 
@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Admin
  * 17.02.2021
  */
-public class EXPERIENCE {
+public class EXPERIENCE implements Skills{
 
     ArrayList<String> experList = new ArrayList<String>();
 
