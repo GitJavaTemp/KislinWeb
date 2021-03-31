@@ -1,4 +1,4 @@
-package Resume;
+package resume;
 
 //import java.util.Objects;
 

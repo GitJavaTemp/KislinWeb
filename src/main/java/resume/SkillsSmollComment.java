@@ -1,10 +1,10 @@
-package Resume;
+package resume;
 
 /**
  * Admin
  * 24.03.2021
  */
-public class SkillsSmollComment extends Section {
+public class SkillsSmollComment /*extends Section*/ {
     protected String title;
     protected String comment;
 }

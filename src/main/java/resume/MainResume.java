@@ -1,6 +1,4 @@
-package Resume;
-
-import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
+package resume;
 
 import java.util.UUID;
 
@@ -12,6 +10,10 @@ public class MainResume {
 
     public static void main(String[] args) {
         Resume programer = new Resume("Oleg");
+        Resume programer2 = new Resume("Oleg2");
+        Resume programer3 = new Resume("Oleg3");
+        Link l = new Link("nameReflection", "urlReflection");
+        System.out.println(l);
         programer.addContacts(new Contact(ContactsType.ADRESS, "Minsk city"));
         programer.addContacts(new Contact(ContactsType.MOBILENUMBER, "12345678"));
         programer.addContacts(new Contact(ContactsType.EMAIL, "mail@mail.ru"));
@@ -36,7 +38,8 @@ public class MainResume {
         System.out.println(programer.toString()+" "+ programer.hashCode());
         */
         System.out.println(UUID.randomUUID());
-    }
 
+
+    }
 
 }

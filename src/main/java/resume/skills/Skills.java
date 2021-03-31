@@ -1,6 +1,4 @@
-package Resume.Skills;
-
-import Resume.Resume;
+package resume.skills;
 
 /**
  * Admin

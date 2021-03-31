@@ -1,4 +1,4 @@
-package Resume.Skills;
+package resume.skills;
 
 import java.util.ArrayList;
 
