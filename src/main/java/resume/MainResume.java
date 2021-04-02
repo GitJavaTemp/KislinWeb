@@ -26,9 +26,9 @@ public class MainResume {
         programer.objective.setAttributes("Freelancer");
         */
 
-        System.out.println("-----------------------------");
+        System.out.println("-----------------");
         programer.viewData();
-        System.out.println("-----------------------------");
+        System.out.println("------------------------------");
 
 /*        programer.achievement.viewAttributes();
         programer.education.viewAttributes();
