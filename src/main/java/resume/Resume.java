@@ -9,7 +9,6 @@ import java.util.UUID;
  * 17.02.2021
  */
 public class Resume {
-//    тест pull
 
     private String fullName;
     private String uuid;
