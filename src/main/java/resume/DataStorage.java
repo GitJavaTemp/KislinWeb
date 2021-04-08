@@ -13,15 +13,10 @@ public class DataStorage implements IBase {
     private List<Resume> arrayResume = new ArrayList<Resume>(LIMIT);
 
     public void create(Resume r) {
-        if (arrayResume.size() == 0) arrayResume.add(r);
-        else {
-            for (Resume arres : arrayResume) {
-                if (arres.getFullName() != r.getFullName())
-                    arrayResume.add(r);
-                else
-                    System.out.println("Your resume is already placing in database");
-            }
-        }
+        if (r != null & !arrayResume.contains(r))
+            arrayResume.add(r);
+        else
+            System.out.println("Your resume is already placing in database");
     }
 
     public Resume read(String uuid) {

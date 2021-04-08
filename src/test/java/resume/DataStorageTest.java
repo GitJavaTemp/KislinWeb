@@ -13,6 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class DataStorageTest {
 
     DataStorage storage;
+    Resume oleg;
 
     {
 
@@ -21,7 +22,8 @@ class DataStorageTest {
     @BeforeEach
     public void beforeEach() {
         storage = new DataStorage();
-        storage.create(new Resume("Oleg"));
+        oleg = new Resume("Oleg");
+        storage.create(oleg);
         storage.create(new Resume("Maks"));
         storage.create(new Resume("Sasha"));
     }
@@ -33,8 +35,7 @@ class DataStorageTest {
 
     @Test
     void createException() {
-        storage.create(new Resume("Oleg"));
-        System.out.println(storage.size());
+        storage.create(oleg);
     }
 
     @Test
@@ -56,6 +57,5 @@ class DataStorageTest {
     @Test
     void size() {
         assertEquals(3, storage.size());
-//        System.out.println(storage.toString());
     }
 }
