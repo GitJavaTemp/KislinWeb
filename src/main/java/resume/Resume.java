@@ -60,4 +60,12 @@ public class Resume {
     public int hashCode() {
         return uuid.hashCode();
     }
+
+    @Override
+    public String toString() {
+        return "Resume{" +
+                "fullName='" + fullName + '\'' +
+                ", uuid='" + uuid + '\'' +
+                '}';
+    }
 }
