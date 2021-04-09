@@ -1,6 +1,5 @@
 package resume;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -14,17 +13,18 @@ class DataStorageTest {
 
     DataStorage storage;
     Resume oleg;
-
-    {
-
-    }
+    Resume maks;
+    Resume chgnFlds;
 
     @BeforeEach
     public void beforeEach() {
         storage = new DataStorage();
-        oleg = new Resume("Oleg");
+        oleg = new Resume("12345","Oleg");
+        maks = new Resume("Maks");
+        chgnFlds =  new Resume("12345","Oleg Kudrevich");
+
         storage.create(oleg);
-        storage.create(new Resume("Maks"));
+        storage.create(maks);
         storage.create(new Resume("Sasha"));
     }
 
@@ -40,14 +40,21 @@ class DataStorageTest {
 
     @Test
     void read() {
+        assertEquals(oleg, storage.read("12345"));
+        assertEquals(maks, storage.read(maks.getUuid()));
     }
 
     @Test
     void update() {
+        assertEquals("Oleg", oleg.getFullName());
+        storage.update(chgnFlds);
+        assertEquals("Oleg Kudrevich", oleg.getFullName());
     }
 
     @Test
     void delete() {
+        storage.delete(oleg.getUuid());
+        storage.delete(oleg.getUuid());
     }
 
     @Test

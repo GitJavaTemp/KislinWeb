@@ -19,7 +19,8 @@ public class Resume {
         this.fullName = fullName;
         this.uuid = uuid;
     }
-    public Resume(String fullName){
+
+    public Resume(String fullName) {
         this((UUID.randomUUID()).toString(), fullName);
     }
 
@@ -31,12 +32,17 @@ public class Resume {
         return uuid;
     }
 
+    public void setFullName(Resume r) {
+        this.fullName = r.fullName;
+    }
 
     public void addContacts(Contact c) {
         contactList.add(c);
     }
 
-    public void addSkills(Section s){sectionList.add(s);}
+    public void addSkills(Section s) {
+        sectionList.add(s);
+    }
 
     public void viewData() {
         System.out.println("ФИО: " + fullName);
