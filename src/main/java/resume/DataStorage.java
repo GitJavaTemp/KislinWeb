@@ -1,7 +1,9 @@
 package resume;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Admin
@@ -35,32 +37,30 @@ public class DataStorage implements IBase {
         }
     }
 
-    public void delete(String uuid) {
-        for (int i = 0; i < arrayResume.size(); i++) {
-            while (arrayResume.iterator().hasNext()) {
-                Resume iterRes = arrayResume.iterator().next();
-                if (iterRes.getUuid() == uuid) {
-                    arrayResume.iterator().remove();
-                    System.out.println("Your resume is succesfully deleted");
-                } else System.out.println("Resume with this ID is't placing in database");
-
-            }
-
+    public void delete(final String uuid) {
+        for (Resume arres : arrayResume) {
+            if (uuid != null & arres.getUuid().equals(uuid)) {
+                System.out.println("contains before " + arrayResume.toString());
+                arrayResume.remove(arres);
+                System.out.println("Your resume is succesfully deleted");
+                System.out.println("contains after " + arrayResume.toString());
+            } else System.out.println("Resume with this ID is't placing in database or ID is incorrect");
         }
     }
-        public void clear () {
 
-        }
+    public void clear() {
 
-        public int size () {
-            return arrayResume.size();
-
-        }
-
-        @Override
-        public String toString () {
-            return "DataStorage{" +
-                    "arrayResume=" + arrayResume +
-                    '}';
-        }
     }
+
+    public int size() {
+        return arrayResume.size();
+
+    }
+
+    @Override
+    public String toString() {
+        return "DataStorage{" +
+                "arrayResume=" + arrayResume +
+                '}';
+    }
+}

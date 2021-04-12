@@ -25,6 +25,7 @@ class DataStorageTest {
 
         storage.create(oleg);
         storage.create(maks);
+//        storage.create(chgnFlds);
         storage.create(new Resume("Sasha"));
     }
 
