@@ -14,14 +14,14 @@ class DataStorageTest {
     DataStorage storage;
     Resume oleg;
     Resume maks;
-    Resume chgnFlds;
+    Resume chngFlds;
 
     @BeforeEach
     public void beforeEach() {
         storage = new DataStorage();
         oleg = new Resume("12345","Oleg");
         maks = new Resume("Maks");
-        chgnFlds =  new Resume("12345","Oleg Kudrevich");
+        chngFlds =  new Resume("12345","Oleg Kudrevich");
 
         storage.create(oleg);
         storage.create(maks);
@@ -48,18 +48,20 @@ class DataStorageTest {
     @Test
     void update() {
         assertEquals("Oleg", oleg.getFullName());
-        storage.update(chgnFlds);
+        storage.update(chngFlds);
         assertEquals("Oleg Kudrevich", oleg.getFullName());
     }
 
     @Test
     void delete() {
         storage.delete(oleg.getUuid());
-        storage.delete(oleg.getUuid());
+        storage.delete(maks.getUuid());
+        storage.delete(chngFlds.getUuid());
     }
 
     @Test
     void clear() {
+        storage.clear();
     }
 
     @Test

@@ -3,7 +3,7 @@ package resume;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.stream.Collectors;
+//import java.util.stream.Collectors;
 
 /**
  * Admin
@@ -13,6 +13,7 @@ public class DataStorage implements IBase {
     Resume resumeout;
     private static final int LIMIT = 100;
     private List<Resume> arrayResume = new ArrayList<Resume>(LIMIT);
+    Iterator<Resume> arrIt;
 
     public void create(Resume r) {
         if (r != null & !arrayResume.contains(r))
@@ -24,7 +25,7 @@ public class DataStorage implements IBase {
     public Resume read(String uuid) {
 
         for (Resume res : arrayResume) {
-            if (res.getUuid() == uuid)
+            if (res.getUuid().equals(uuid))
                 resumeout = res;
         }
         return resumeout;
@@ -37,19 +38,26 @@ public class DataStorage implements IBase {
         }
     }
 
-    public void delete(final String uuid) {
-        for (Resume arres : arrayResume) {
-            if (uuid != null & arres.getUuid().equals(uuid)) {
+    public void delete(String uuid) {
+        arrIt = arrayResume.iterator();
+        int count = 0;
+        while (arrIt.hasNext()) {
+            Resume arRes = arrIt.next();
+            if (arRes.getUuid().equals(uuid)) {
                 System.out.println("contains before " + arrayResume.toString());
-                arrayResume.remove(arres);
-                System.out.println("Your resume is succesfully deleted");
+                arrIt.remove();
+                count++;
+                System.out.println("Resume with ID = " + uuid + " is succesfully deleted");
                 System.out.println("contains after " + arrayResume.toString());
-            } else System.out.println("Resume with this ID is't placing in database or ID is incorrect");
+            }
         }
+        if (count == 0) System.out.println("Resume with this ID is't placing in database or ID is incorrect");
     }
 
     public void clear() {
-
+        System.out.println("contains before " + arrayResume.toString());
+        arrayResume.clear();
+        System.out.println("contains after " + arrayResume.toString());
     }
 
     public int size() {
