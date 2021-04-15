@@ -44,9 +44,9 @@ public class DataStorage implements IBase {
         while (arrIt.hasNext()) {
             Resume arRes = arrIt.next();
             if (arRes.getUuid().equals(uuid)) {
+                count++;
                 System.out.println("contains before " + arrayResume.toString());
                 arrIt.remove();
-                count++;
                 System.out.println("Resume with ID = " + uuid + " is succesfully deleted");
                 System.out.println("contains after " + arrayResume.toString());
             }
