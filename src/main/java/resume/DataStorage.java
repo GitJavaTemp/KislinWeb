@@ -1,5 +1,8 @@
 package resume;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -10,15 +13,17 @@ import java.util.List;
  * 25.03.2021
  */
 public class DataStorage implements IBase {
+    private static final Logger log = LogManager.getLogger(DataStorage.class);
     Resume resumeout;
-    private static final int LIMIT = 100;
+    private static final  int LIMIT = 100;
     private List<Resume> arrayResume = new ArrayList<Resume>(LIMIT);
     Iterator<Resume> arrIt;
 
     public void create(Resume r) {
-        if (r != null & !arrayResume.contains(r))
+        if (r != null & !arrayResume.contains(r)) {
             arrayResume.add(r);
-        else
+            log.debug("Create resume");
+        } else
             System.out.println("Your resume is already placing in database");
     }
 
@@ -36,6 +41,9 @@ public class DataStorage implements IBase {
             if ((res.getUuid()).equals(r.getUuid()))
                 res.setFullName(r);
         }
+//        arrayResume.stream()
+//                .filter(arres -> !uuid.equals(arres.getUuid()))
+//                .collect(Collectors.toList());
     }
 
     public void delete(String uuid) {
@@ -48,15 +56,17 @@ public class DataStorage implements IBase {
                 System.out.println("contains before " + arrayResume.toString());
                 arrIt.remove();
                 System.out.println("Resume with ID = " + uuid + " is succesfully deleted");
+                log.info("delete Resume ");
                 System.out.println("contains after " + arrayResume.toString());
             }
         }
-        if (count == 0) System.out.println("Resume with this ID is't placing in database or ID is incorrect");
+        if (count == 0) log.info("Resume with this ID is't placing in database or ID is incorrect");
     }
 
     public void clear() {
         System.out.println("contains before " + arrayResume.toString());
         arrayResume.clear();
+        log.info("clear database");
         System.out.println("contains after " + arrayResume.toString());
     }
 
