@@ -18,7 +18,7 @@ public class MainResume {
         programer.addContacts(new Contact(ContactsType.MOBILENUMBER, "12345678"));
         programer.addContacts(new Contact(ContactsType.EMAIL, "mail@mail.ru"));
 
-/*        programer.achievement.setAttributes("Разработака десктопных приложений, основы WEB");
+/*      programer.achievement.setAttributes("Разработака десктопных приложений, основы WEB");
         programer.education.setAttributes("BSUIR 2000-2005");
         programer.experience.setAttributes("Два года");
         programer.qalifications.setAttributes("Java SE, Java EE");

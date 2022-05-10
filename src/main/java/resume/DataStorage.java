@@ -13,7 +13,7 @@ import java.util.List;
  * 25.03.2021
  */
 public class DataStorage implements IBase {
-    private static final Logger log = LogManager.getLogger(DataStorage.class);
+    protected Logger log = LogManager.getLogger(getClass().getName());
     Resume resumeout;
     private static final  int LIMIT = 100;
     private List<Resume> arrayResume = new ArrayList<Resume>(LIMIT);
@@ -22,7 +22,8 @@ public class DataStorage implements IBase {
     public void create(Resume r) {
         if (r != null & !arrayResume.contains(r)) {
             arrayResume.add(r);
-            log.debug("Create resume");
+            log.debug("Create resume " + r.getUuid());
+
         } else
             System.out.println("Your resume is already placing in database");
     }
