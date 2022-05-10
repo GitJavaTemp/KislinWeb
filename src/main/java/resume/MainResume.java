@@ -7,7 +7,7 @@ import java.util.UUID;
  * 17.02.2021
  */
 public class MainResume {
-
+//test git
     public static void main(String[] args) {
         Resume programer = new Resume("Oleg");
         Resume programer2 = new Resume("Oleg2");
