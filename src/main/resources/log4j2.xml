@@ -10,6 +10,9 @@
         <Logger name="resume.storage.CollectionStorage" level="debug" additivity="false">
             <AppenderRef ref="LogToConsole"/>
         </Logger>
+        <Logger name="resume.storage.MapStorage" level="debug" additivity="false">
+            <AppenderRef ref="LogToConsole"/>
+        </Logger>
         <Root level="error">
             <AppenderRef ref="LogToConsole"/>
         </Root>
