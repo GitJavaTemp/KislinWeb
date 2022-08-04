@@ -1,13 +1,15 @@
-package resume;
+package resume.storage;
+
+import resume.Resume;
 
 /**
  * Admin
  * 25.03.2021
  */
-public interface IBase {
+public interface IStorage {
     void create (Resume r);
     Resume read (String uuid);
     void update (Resume r);
-    void delete (String uuid);
+    int delete (String uuid);
     void clear ();
 }

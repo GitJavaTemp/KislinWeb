@@ -1,6 +1,7 @@
 package resume;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -12,8 +13,8 @@ public class Resume {
 
     private String fullName;
     private String uuid;
-    List<Contact> contactList = new ArrayList();
-    List<Section> sectionList = new ArrayList();
+    List<Contact> contactList = new ArrayList<>();
+    List<Section> sectionList = new ArrayList<>();
 
     public Resume(String uuid, String fullName) {
         this.fullName = fullName;
@@ -36,9 +37,7 @@ public class Resume {
         this.fullName = r.fullName;
     }
 
-    public void addContacts(Contact c) {
-        contactList.add(c);
-    }
+    public void addContacts(Contact c) {contactList.add(c);}
 
     public void addSkills(Section s) {
         sectionList.add(s);
@@ -51,6 +50,7 @@ public class Resume {
             System.out.println(c);
         }
     }
+
 
     @Override
     public boolean equals(Object o) {

@@ -6,9 +6,9 @@ package resume;
  */
 public class Contact {
     private final ContactsType type;
-    private final String value;
+    private final String[] value;
 
-    public Contact(ContactsType type, String value) {
+    public Contact(ContactsType type, String... value) {
         this.type = type;
         this.value = value;
     }
@@ -17,7 +17,7 @@ public class Contact {
         return type;
     }
 
-    public String getValue() {
+    public String[] getValue() {
         return value;
     }
 
