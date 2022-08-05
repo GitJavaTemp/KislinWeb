@@ -49,7 +49,7 @@ class MapStorageTest {
     void update() {
         assertEquals("Oleg", oleg.getFullName());
         storage.update(chngFlds);
-        assertEquals("Oleg Kudrevich", oleg.getFullName());
+        assertEquals("Oleg Kudrevich", storage.read(chngFlds.getUuid()).getFullName());
     }
 
     @Test
