@@ -1,50 +1,59 @@
 package resume;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * Admin
  * 17.02.2021
  */
-public class Resume {
+public class Resume implements Comparable<Resume> {
 
-    private String fullName;
+    private String firstName;
+    private String lastName;
     private String uuid;
     List<Contact> contactList = new ArrayList<>();
     List<Section> sectionList = new ArrayList<>();
 
-    public Resume(String uuid, String fullName) {
-        this.fullName = fullName;
+    public Resume(String uuid, String lastName, String firstName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.uuid = uuid;
     }
 
-    public Resume(String fullName) {
-        this((UUID.randomUUID()).toString(), fullName);
+    public Resume(String lastName, String firstName) {
+        this((UUID.randomUUID()).toString(), lastName, firstName);
     }
 
-    public String getFullName() {
-        return fullName;
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getUuid() {
         return uuid;
     }
 
-    public void setFullName(Resume r) {
-        this.fullName = r.fullName;
+    public void setFirstName(Resume r) {
+        this.firstName = r.firstName;
     }
 
-    public void addContacts(Contact c) {contactList.add(c);}
+    public void addContacts(Contact c) {
+        contactList.add(c);
+    }
 
     public void addSkills(Section s) {
         sectionList.add(s);
     }
 
     public void viewData() {
-        System.out.println("ФИО: " + fullName);
+        System.out.println("ФИО: " + firstName);
 
         for (Contact c : contactList) {
             System.out.println(c);
@@ -70,8 +79,17 @@ public class Resume {
     @Override
     public String toString() {
         return "Resume{" +
-                "fullName='" + fullName + '\'' +
-                ", uuid='" + uuid + '\'' +
-                '}';
+                "lastName = '" + lastName + ", firstName = '" + firstName +
+                ", uuid = '" + uuid + '}';
+    }
+
+    @Override
+    public int compareTo(Resume res) {
+        int result = this.getLastName().compareTo(res.getLastName());
+        if (result == 0) {
+            return this.getFirstName().compareTo(res.getFirstName());
+        }
+        return result;
     }
 }
+

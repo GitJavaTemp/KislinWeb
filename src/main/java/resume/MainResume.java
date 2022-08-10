@@ -10,9 +10,9 @@ import java.util.UUID;
 public class MainResume {
 //test git
     public static void main(String[] args) {
-        Resume programer = new Resume("Oleg");
-        Resume programer2 = new Resume("Oleg2");
-        Resume programer3 = new Resume("Oleg3");
+        Resume programer = new Resume("1", "Kudrevich", "Oleg");
+        Resume programer2 = new Resume("2", "Kudrevich", "Oleg");
+        Resume programer3 = new Resume("3", "Kudrevich", "Oleg");
         Link l = new Link("nameReflection", "urlReflection");
         System.out.println(l);
         programer.addContacts(new Contact(ContactsType.ADRESS, "Minsk city"));

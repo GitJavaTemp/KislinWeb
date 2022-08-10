@@ -1,26 +1,18 @@
 package resume.storage;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import resume.Contact;
-import resume.ContactsType;
 import resume.Resume;
-
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.Collections;
 import java.util.List;
-//import java.util.stream.Collectors;
 
 /**
  * Admin
  * 25.03.2021
  */
 public class CollectionStorage extends AbstractStorage {
-    protected Logger log = LogManager.getLogger(getClass().getName());
     Resume resumeout;
     private static final int LIMIT = 100;
     private List<Resume> arrayResume = new ArrayList<>(LIMIT);
-    Iterator<Resume> arrIterator;
 
     public void doCreate(Resume resume) {
         if (!arrayResume.contains(resume)) {
@@ -39,34 +31,19 @@ public class CollectionStorage extends AbstractStorage {
         return resumeout;
     }
 
+    public List readAll(){
+        return  arrayResume;
+    }
+
     public void update(Resume r) {
         for (Resume res : arrayResume) {
             if ((res.getUuid()).equals(r.getUuid()))
-                res.setFullName(r);
+                res.setFirstName(r);
         }
-//        arrayResume.stream()
-//                .filter(arres -> !uuid.equals(arres.getUuid()))
-//                .collect(Collectors.toList());
     }
 
     public int delete(String uuid) {
-/*        arrIterator = arrayResume.iterator();
-        int count = 0;
-        while (arrIterator.hasNext()) {
-            Resume arRes = arrIterator.next();
-            if (arRes.getUuid().equals(uuid)) {
-                count++;
-                log.debug("contains before " + arrayResume.toString());
-                arrIterator.remove();
-                log.info("Resume with ID = " + uuid + " is succesfully deleted");
-                log.debug("contains after " + arrayResume.toString());
-            }
-        }
-        if (count == 0) {
-            log.info("Resume with this ID is't placing in database or ID is incorrect");
-        }
-        return count;*/
-        Resume arRes = new Resume( uuid, "delete");
+        Resume arRes = new Resume( uuid, "delete", "delete");
         int count = 0;
         if (arrayResume.contains(arRes)) {
             while (arrayResume.remove(arRes)) {
@@ -88,10 +65,14 @@ public class CollectionStorage extends AbstractStorage {
         return arrayResume.size();
 
     }
+    public List sort(){
+        Collections.sort(arrayResume);
+        return arrayResume;
+    }
 
     @Override
     public String toString() {
-        return "DataStorage{" +
+        return "CollectionStorage{" +
                 "arrayResume=" + arrayResume +
                 '}';
     }

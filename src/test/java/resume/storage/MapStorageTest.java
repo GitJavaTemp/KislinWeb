@@ -3,7 +3,6 @@ package resume.storage;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
-import org.omg.CORBA.portable.ApplicationException;
 import resume.Resume;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -20,9 +19,9 @@ class MapStorageTest {
     @BeforeEach
     public void beforeEach() {
         storage = new MapStorage();
-        oleg = new Resume("12345", "Oleg");
-        maks = new Resume("Maks");
-        chngFlds = new Resume("12345", "Oleg Kudrevich");
+        oleg = new Resume("12345", "Kudrevich", "Oleg");
+        maks = new Resume("Kudrevich", "Maks");
+        chngFlds = new Resume("12345", "Kudrevich", "Oleg Yurievich");
 
         storage.create(oleg);
         storage.create(maks);
@@ -47,9 +46,9 @@ class MapStorageTest {
 
     @Test
     void update() {
-        assertEquals("Oleg", oleg.getFullName());
+        assertEquals("Oleg", oleg.getFirstName());
         storage.update(chngFlds);
-        assertEquals("Oleg Kudrevich", storage.read(chngFlds.getUuid()).getFullName());
+        assertEquals("Oleg Kudrevich", storage.read(chngFlds.getUuid()).getFirstName());
     }
 
     @Test

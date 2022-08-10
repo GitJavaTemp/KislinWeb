@@ -1,9 +1,6 @@
 package resume.storage;
 
 import resume.Resume;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,7 +10,6 @@ import java.util.Map;
  * 18.07.2022
  */
 public class MapStorage extends AbstractStorage {
-    protected Logger log = LogManager.getLogger(getClass().getName());
     Map<String, Resume> map = new HashMap<>();
 
     @Override
@@ -27,7 +23,10 @@ public class MapStorage extends AbstractStorage {
 
     @Override
     public Resume read(String uuid) {
-        return map.get(uuid);
+//        if (map.containsKey(uuid))
+         return map.get(uuid);
+//        else
+//            log.info("Resume with this ID isn't placing in database");
     }
 
     @Override
